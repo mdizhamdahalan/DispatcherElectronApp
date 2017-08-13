@@ -1,3 +1,4 @@
+import { HomePage } from '../pages';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -20,6 +21,10 @@ export class SetupPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SetupPage');
+  }
+
+  setInfo() {
+    this.navCtrl.setRoot(HomePage)
   }
 
 }
