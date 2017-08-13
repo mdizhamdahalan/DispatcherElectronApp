@@ -1,3 +1,5 @@
+import { AddressListPage } from './address-list/address-list';
+import { AddressService } from './core/address-service/address-service';
 import { SetupPage } from './setup/setup';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -12,7 +14,8 @@ import { HomePage } from '../pages/home/home';
   declarations: [
     MyApp,
     HomePage,
-    SetupPage
+    SetupPage,
+    AddressListPage
   ],
   imports: [
     BrowserModule,
@@ -22,12 +25,14 @@ import { HomePage } from '../pages/home/home';
   entryComponents: [
     MyApp,
     HomePage,
-    SetupPage
+    SetupPage,
+    AddressListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AddressService
   ]
 })
 export class AppModule {}

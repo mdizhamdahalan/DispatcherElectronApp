@@ -1,3 +1,4 @@
+import { AddressListPage } from './../../app/address-list/address-list';
 import { SetupPage } from './../../app/setup/setup';
 import { Component } from '@angular/core';
 import { FabContainer, NavController } from 'ionic-angular';
@@ -7,14 +8,19 @@ import { FabContainer, NavController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  setup = SetupPage;
 
   constructor(public navCtrl: NavController) {
 
   }
 
-  goToSetup(fab: FabContainer) {
+  goToLocations(fab: FabContainer) {
+    fab.close;
+    this.navCtrl.setRoot(AddressListPage);
+  }
+
+  close(fab: FabContainer) {
     fab.close();
-    this.navCtrl.push(SetupPage, {}, { animate: true, direction: 'forward' });
   }
 
 }
