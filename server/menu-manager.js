@@ -105,9 +105,11 @@ class MenuManager {
       submenu: [{
         label: 'Map',
         click: this.onMap,
+        accelerator: 'CommandOrControl+M'
       }, {
         label: 'Select Location',
-        click: this.onLocations
+        click: this.onLocations,
+        accelerator: 'CommandOrControl+L'
       }, {
         type: 'separator'
       }, {

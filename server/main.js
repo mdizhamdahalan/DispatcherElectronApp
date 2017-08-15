@@ -1,10 +1,24 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, Menu} = require('electron')
 const path = require('path')
 const url = require('url')
+const menuManager = require('./menu-manager')
 
 let win
 
-app.on('ready', createWindow)
+app.on('ready', appReady)
+
+function appReady() {
+    menuManager.onAbout = () => {console.log('You REALLY clicked About...')}
+    const menu = menuManager.build()
+    Menu.setApplicationMenu(menu)
+
+    // Only MacOS will have a dock property
+    if (app.dock) {
+        app.dock.setIcon(iconPath)
+    }
+
+    createWindow()
+}
 
 function createWindow () {
     // Create the browser window
